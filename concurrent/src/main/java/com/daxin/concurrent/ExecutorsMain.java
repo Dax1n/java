@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  *       es5 :java.util.concurrent.ScheduledThreadPoolExecutor 
  *       es6 :java.util.concurrent.Executors$DelegatedScheduledExecutorService
  */
-public class Main1 {
+public class ExecutorsMain {
 	public static void main(String[] args) {
 
 		ExecutorService es1 = Executors.newCachedThreadPool();

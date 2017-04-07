@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2017年4月6日 下午4:35:24
  * 
  */
-public class Main {
+public class ThreadPoolExecutorMain {
 
 	public static void main(String[] args) {
 		BlockingQueue<Runnable> workQueue =new ArrayBlockingQueue<>(20);
