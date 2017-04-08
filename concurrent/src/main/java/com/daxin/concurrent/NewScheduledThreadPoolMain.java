@@ -36,7 +36,8 @@ class NewScheduledThreadPoolThreadFactory implements ThreadFactory{
  */
 public class NewScheduledThreadPoolMain {
 	
-	public static void main(String[] args) {
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) throws InterruptedException {
 		
 //		DaxinDaemonThreadFactory threadFactory = new DaxinDaemonThreadFactory();//这个是守护线程线程池，当初第一次调度使用的是这个线程工厂，每次都不调度。切记不可守护线程
 		NewScheduledThreadPoolThreadFactory threadFactory = new NewScheduledThreadPoolThreadFactory();
@@ -60,9 +61,40 @@ public class NewScheduledThreadPoolMain {
 			}
 		};
 		
-		ScheduledFuture<?> rs = nst.scheduleAtFixedRate(command, 1, 2, TimeUnit.SECONDS);
+		//在scheduleAtFixedRate提交Runnable任务的方法实现中返回的就是ScheduledFuture<Void>
+		ScheduledFuture<Void> rs = (ScheduledFuture<Void>) nst.scheduleAtFixedRate(command,10, 2, TimeUnit.SECONDS);
 		
+
+		//ScheduledThreadPoolExecutor$ScheduledFutureTask
+		System.out.println(rs.getClass().getName());
 		
+		//用于获取当前对象剩余的延迟时间，就是初始延迟执行时间的剩余
+		long delay = rs.getDelay(TimeUnit.SECONDS);
+		System.out.println(delay);
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		Thread.sleep(2000);
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		Thread.sleep(2000);
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		Thread.sleep(2000);
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+		System.out.println(rs.getDelay(TimeUnit.SECONDS));
+	
+
+		 
 		
 		
 	}

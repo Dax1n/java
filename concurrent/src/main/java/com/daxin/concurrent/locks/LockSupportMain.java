@@ -38,7 +38,7 @@ public class LockSupportMain {
 		Thread.sleep(6000);
 		System.out.println("main thread end,thread1 " + thread1.getState());
 		
-		没有理解头侧，改天在学习。状态有点不好，注意力不集中
+//		没有理解头侧，改天在学习。状态有点不好，注意力不集中
 	}
 
 }
