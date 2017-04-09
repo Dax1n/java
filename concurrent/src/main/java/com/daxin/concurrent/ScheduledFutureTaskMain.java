@@ -46,7 +46,7 @@ public class ScheduledFutureTaskMain {
 		};
 		
 		  ScheduledFuture<Integer> rs = nst.schedule(callable, 5, TimeUnit.SECONDS);
-		
+		System.out.println(rs.getClass().getName());
 
 		  while(!rs.isDone()){
 			  Thread.sleep(1000);
@@ -54,7 +54,7 @@ public class ScheduledFutureTaskMain {
 		  
 		  System.out.println(rs.get());
 
-	
+		  nst.shutdown();
 
 		 
 		
