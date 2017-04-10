@@ -87,13 +87,17 @@ public class ExecutorsMain {
 		 * 
 		 */
 
-		/*
-		 * System.out.println(); 可以自动添加线程，任务可以其次全提交 es1.submit(task);
-		 * es1.submit(task); es1.submit(task); es1.submit(task);
-		 * es1.submit(task); es1.submit(task); es1.submit(task);
-		 * 
-		 * es1.shutdown();
-		 */
+		System.out.println(); // 可以自动添加线程，任务可以其次全提交 
+		es1.submit(task);
+		es1.submit(task);
+		es1.submit(task);
+		es1.submit(task);
+		es1.submit(task);
+		es1.submit(task);
+		es1.submit(task);
+
+		es1.shutdown();
+
 	}
 
 }
