@@ -1,5 +1,6 @@
 package com.daxin.concurrent;
 
+import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -48,6 +49,17 @@ public class NewCachedThreadPool {
 		ThreadFactory threadFactory =new CachedThreadFactory();
 		ExecutorService newCachedThreadPool2 = Executors.newCachedThreadPool(threadFactory );
 		
+		newCachedThreadPool2.submit(new TimerTask() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("TimerTask ........");
+				
+			}
+		});
+		
+		newCachedThreadPool2.shutdown();
 		
 		
 		
